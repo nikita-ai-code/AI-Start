@@ -39,7 +39,6 @@ grades = {
 def calculate_average(grades):
     total = 0
     for grade in grades.values():
-        print(grade)
         total = total + grade
     average = total / len(grades)
     return average
