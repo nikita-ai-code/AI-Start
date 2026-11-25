@@ -44,16 +44,19 @@ while True:
             text = input("Please enter a text:")
             if text == "":
                 print("Note cannot be empty!")
-            file.write(text + "\n")
             else:
+                file.write(text + "\n")
                 print("Note saved successfully!")
     elif choice == "2":
-        with open ("notes.txt", "r") as file:
-            content = file.read()
-            if file.read() == "":
-                print("No notes yet!")
-            else:    
-                print(content)
+        try:
+            with open ("notes.txt", "r") as file:
+                content = file.read()
+                if content == "":
+                    print("No notes yet!")
+                else:    
+                    print(content)
+        except FileNotFoundError:
+            print("No notes yet!")
     elif choice == "3":
         break
     else:
